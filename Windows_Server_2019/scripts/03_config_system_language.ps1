@@ -21,7 +21,7 @@ $DefaultHKEY = "HKU\DEFAULT_USER"
 $DefaultRegPath = "C:\Users\Default\NTUSER.DAT"
 $tempFolder = "C:\Temp"
 $defaultPath = $tempFolder + "\ja-JP-default.reg"
-$welcomePath = $tempFolder + "C:\ja-JP-welcome.reg"
+$welcomePath = $tempFolder + "\ja-JP-welcome.reg"
 
 REG LOAD $DefaultHKEY $DefaultRegPath
 REG IMPORT $defaultPath
