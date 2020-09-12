@@ -28,5 +28,5 @@ REG IMPORT $defaultPath
 REG UNLOAD $DefaultHKEY
 REG IMPORT $welcomePath
 
-# Clean up temporary folder
-Remove-Item -Path $tempFolder -Recurse
+# Update UWP Apps
+Get-AppxPackage | Foreach-Object {$ManifestPath = $_.InstallLocation + "\AppxManifest.xml"; Add-AppxPackage -Register $ManifestPath -DisableDevelopmentMode -ForceUpdateFromAnyVersion}

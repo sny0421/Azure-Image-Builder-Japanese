@@ -1,0 +1,26 @@
+<LayoutModificationTemplate xmlns:defaultlayout="http://schemas.microsoft.com/Start/2014/FullDefaultLayout" xmlns:start="http://schemas.microsoft.com/Start/2014/StartLayout" Version="1" xmlns="http://schemas.microsoft.com/Start/2014/LayoutModification">
+  <LayoutOptions StartTileGroupCellWidth="6" />
+  <DefaultLayoutOverride>
+    <StartLayoutCollection>
+      <defaultlayout:StartLayout GroupCellWidth="6">
+        <start:Group Name="デスクトップアプリ">
+          <start:DesktopApplicationTile Size="2x2" Column="2" Row="0" DesktopApplicationID="MSEdge" />
+          <start:DesktopApplicationTile Size="2x2" Column="4" Row="6" DesktopApplicationID="Microsoft.Windows.Explorer" />
+          <start:Tile Size="2x2" Column="0" Row="0" AppUserModelID="Microsoft.MicrosoftOfficeHub_8wekyb3d8bbwe!Microsoft.MicrosoftOfficeHub" />
+          <start:Tile Size="2x2" Column="4" Row="0" AppUserModelID="Microsoft.WindowsStore_8wekyb3d8bbwe!App" />
+          <start:DesktopApplicationTile Size="2x2" Column="2" Row="6" DesktopApplicationID="Microsoft.Windows.ControlPanel" />
+          <start:DesktopApplicationTile Size="2x2" Column="2" Row="4" DesktopApplicationID="Microsoft.Office.ONENOTE.EXE.15" />
+          <start:DesktopApplicationTile Size="2x2" Column="2" Row="2" DesktopApplicationID="Microsoft.Office.POWERPNT.EXE.15" />
+          <start:DesktopApplicationTile Size="2x2" Column="4" Row="4" DesktopApplicationID="com.squirrel.Teams.Teams" />
+          <start:DesktopApplicationTile Size="2x2" Column="0" Row="2" DesktopApplicationID="Microsoft.Office.EXCEL.EXE.15" />
+          <start:DesktopApplicationTile Size="2x2" Column="0" Row="6" DesktopApplicationID="Microsoft.VisualStudioCode" />
+          <start:DesktopApplicationTile Size="2x2" Column="4" Row="2" DesktopApplicationID="Microsoft.Office.WINWORD.EXE.15" />
+          <start:DesktopApplicationTile Size="2x2" Column="0" Row="4" DesktopApplicationID="Microsoft.Office.OUTLOOK.EXE.15" />
+        </start:Group>
+        <start:Group Name="">
+          <start:Tile Size="2x2" Column="0" Row="0" AppUserModelID="Microsoft.MicrosoftPowerBIDesktop_8wekyb3d8bbwe!Microsoft.MicrosoftPowerBIDesktop" />
+        </start:Group>
+      </defaultlayout:StartLayout>
+    </StartLayoutCollection>
+  </DefaultLayoutOverride>
+</LayoutModificationTemplate>

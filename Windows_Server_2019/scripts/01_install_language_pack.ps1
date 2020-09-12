@@ -7,7 +7,7 @@ New-Item -Name $tempFolder -ItemType Directory
 $lpkLocalPath = $tempFolder + "\LanguagePack.iso"
 ### Language pack URL
 $lpkDownloadUrl = "https://software-download.microsoft.com/download/pr/17763.1.180914-1434.rs5_release_SERVERLANGPACKDVD_OEM_MULTI.iso"
-### Downlaod ISO file
+## Downlaod ISO file
 $wc = New-Object net.webclient
 $wc.Downloadfile($lpkDownloadUrl, $lpkLocalPath)
 
