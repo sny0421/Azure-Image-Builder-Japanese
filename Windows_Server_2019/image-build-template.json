@@ -43,7 +43,7 @@
             "identity": {
                 "type": "UserAssigned",
                 "userAssignedIdentities": {
-                    "[resourceId(resourceGroup().Id, 'Microsoft.ManagedIdentity/userAssignedIdentities', parameters('aibManagedId'))]": {
+                    "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('aibManagedId'))]": {
                     }
                 }
             },
@@ -89,13 +89,13 @@
                     {
                         "type": "File",
                         "name": "ja-JP-welcome",
-                        "sourceUri": "https://raw.githubusercontent.com/sny0421/windows-server-2019-japanese/master/registers/ja-JP-welcome.reg",
+                        "sourceUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese-Image/master/Windows_Server_2019/registers/ja-JP-welcome.reg",
                         "destination": "C:\\Temp\\ja-JP-welcome.reg"
                     },
                     {
                         "type": "File",
                         "name": "ja-JP-default",
-                        "sourceUri": "https://raw.githubusercontent.com/sny0421/windows-server-2019-japanese/master/registers/ja-JP-default.reg",
+                        "sourceUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese-Image/master/Windows_Server_2019/registers/ja-JP-default.reg",
                         "destination": "C:\\Temp\\ja-JP-default.reg"
                     },
                     {
@@ -125,7 +125,7 @@
                 "distribute": [
                     {
                         "type": "SharedImage",
-                        "galleryImageId": "[resourceId(resourceGroup().Id, 'Microsoft.Compute/galleries/images', parameters('imageGalleryName'), parameters('imageName'))]",
+                        "galleryImageId": "[resourceId('Microsoft.Compute/galleries/images', parameters('imageGalleryName'), parameters('imageName'))]",
                         "runOutputName": "[concat(parameters('imageTemplateName'), 'Output')]",
                         "artifactTags": {
                             "source": "azureVmImageBuilder",

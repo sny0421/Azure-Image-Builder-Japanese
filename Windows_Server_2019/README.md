@@ -109,15 +109,15 @@ Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $rgN
 # インスタンスのプロファイルを取得
 $azureRmProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
 $profileClient = New-Object Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient($azureRmProfile)
-Write-Verbose ("Tenant: {0}" -f  $currentAzureContext.Subscription.Name)
+Write-Verbose ("Tenant: {0}" -f  $currentAzContext.Subscription.Name)
 
 # トークンの取得
-$token = $profileClient.AcquireAccessToken($currentAzureContext.Tenant.TenantId)
+$token = $profileClient.AcquireAccessToken($currentAzContext.Tenant.TenantId)
 $accessToken = $token.AccessToken
-$managementEp = $currentAzureContext.Environment.ResourceManagerUrl
+$managementEp = $currentAzContext.Environment.ResourceManagerUrl
 
 # 進行状況の取得
-$urlBuildStatus = [System.String]::Format("{0}subscriptions/{1}/resourceGroups/$imageResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/{2}?api-version=2019-05-01-preview", $managementEp, $currentAzureContext.Subscription.Id,$imageTemplateName)
+$urlBuildStatus = [System.String]::Format("{0}subscriptions/{1}/resourceGroups/$rgName/providers/Microsoft.VirtualMachineImages/imageTemplates/{2}?api-version=2019-05-01-preview", $managementEp, $currentAzContext.Subscription.Id,$imageTemplateName)
 $buildJsonStatus = (Invoke-WebRequest -Method GET  -Uri $urlBuildStatus -UseBasicParsing -Headers  @{"Authorization"= ("Bearer " + $accessToken)} -ContentType application/json).content
 $buildJsonStatus
 ```
