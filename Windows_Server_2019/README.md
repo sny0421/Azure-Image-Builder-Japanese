@@ -80,7 +80,7 @@ $replicaLocation = "japaneast"
 New-AzGallery -GalleryName $galleryName -ResourceGroupName $rgName -Location $aibLocation
 
 # イメージ定義の作成
-New-AzGalleryImageDefinition -GalleryName $galleryName -ResourceGroupName $imageResourceGroup -Location $aibLocation -Name $imageName -OsState generalized -OsType Windows -Publisher 'AIB' -Offer 'Windows' -Sku 'Windows_Server_2019'
+New-AzGalleryImageDefinition -GalleryName $galleryName -ResourceGroupName $rgName -Location $aibLocation -Name $imageName -OsState generalized -OsType Windows -Publisher 'AIB' -Offer 'Windows' -Sku 'Windows_Server_2019'
 ```
 
 ## Azure Image Builder によるテンプレートからのイメージ作成
@@ -91,7 +91,7 @@ $imageTemplateName = "AIB-Windows-Server-2019-Japanese-Template"
 
 # イメージテンプレートの作成
 ## イメージテンプレートのダウンロード URL を定義
-$templateUrl="https://raw.githubusercontent.com/sny0421/windows-server-2019-japanese/master/image-build-template.json"
+$templateUrl="https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese-Image/master/Windows_Server_2019/image-build-template.json"
 $templateFilePath = "image-build-template.json"
 ## イメージテンプレートをダウンロード
 Invoke-WebRequest -Uri $templateUrl -OutFile $templateFilePath -UseBasicParsing
