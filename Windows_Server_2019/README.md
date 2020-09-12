@@ -47,7 +47,7 @@ $idenityNamePrincipalId = $(Get-AzUserAssignedIdentity -ResourceGroupName $rgNam
 # AIB 用のカスタムロールを作成
 $imageRoleDefName = "Azure Image Builder Image Def Preview"
 ## カスタムロール用テンプレートのダウンロードパスを定義
-$aibRoleImageCreationUrl = "https://raw.githubusercontent.com/sny0421/windows-server-2019-japanese/master/aib-role-creation.json"
+$aibRoleImageCreationUrl = "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese-Image/master/AIB_Rolle_Define/aib-role-creation.json"
 $aibRoleImageCreationPath = "aib-role-reation.json"
 ## カスタムロール用テンプレートをダウンロード
 Invoke-WebRequest -Uri $aibRoleImageCreationUrl -OutFile $aibRoleImageCreationPath -UseBasicParsing
