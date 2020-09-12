@@ -72,7 +72,7 @@ New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imag
 ## 共有イメージギャラリーの名前
 $galleryName= "MyAibSig001"
 ## イメージ定義の名前
-$imageName ="Windows-Server-2019-JP"
+$imageName ="Windows-10-EVD-2004-JP"
 ## レプリカするリージョンの指定
 $replicaLocation = "japaneast"
 
