@@ -1,7 +1,7 @@
 # Windows 10 Enterprise for Virtual Desktop 2004
 
 ## 目的
-Azure Image Builder を使用して、日本語化された Windows Server 2019 イメージを自動生成する。
+Azure Image Builder を使用して、日本語化された Windows 10 Enterprise for Virtual Desktop 2004 イメージを自動生成する。
 
 ## リソースグループ作成
 Azure Image Builder による展開
