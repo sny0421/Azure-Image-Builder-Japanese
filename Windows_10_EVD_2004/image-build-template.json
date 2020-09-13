@@ -64,7 +64,7 @@
                     {
                         "type": "PowerShell",
                         "name": "CreateBuildPath",
-                        "runElevated": false,
+                        "runElevated": true,
                         "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese-Image/master/Windows_10_EVD_2004/scripts/01_network_policy.ps1"
                     },
                     {
