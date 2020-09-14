@@ -63,16 +63,6 @@
                 "customize": [
                     {
                         "type": "PowerShell",
-                        "name": "01_network_policy",
-                        "runElevated": true,
-                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese-Image/master/Windows_10_EVD_2004/scripts/01_network_policy.ps1"
-                    },
-                    {
-                        "type": "WindowsRestart",
-                        "restartTimeout": "20m"
-                    },
-                    {
-                        "type": "PowerShell",
                         "name": "02_install_language_pack",
                         "runElevated": false,
                         "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese-Image/master/Windows_10_EVD_2004/scripts/02_install_language_pack.ps1"
