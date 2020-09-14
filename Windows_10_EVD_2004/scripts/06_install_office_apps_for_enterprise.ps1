@@ -55,17 +55,17 @@ REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams" /v IsWVDEnvironment /t REG
 ## Install Teams & optimize module
 ### Visual Studio C++ redist
 $vcUrl = "https://aka.ms/vs/16/release/vc_redist.x64.exe"
-$vcLocalPath = $localPath + "\vc_redist.x64.exe"
+$vcLocalPath = $tempFolder + "\vc_redist.x64.exe"
 $wc.Downloadfile($vcUrl, $vcLocalPath)
 Start-Process -FilePath $vcLocalPath -Wait -ArgumentList "/quiet"
 ### Teams WebSocket
 $webSocketUrl = "https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt"
-$webSocketLocalPath = $localPath + "\websocket.msi"
+$webSocketLocalPath = $tempFolder + "\websocket.msi"
 $wc.Downloadfile($webSocketUrl, $webSocketLocalPath)
-start /wait msiexec.exe /i $webSocketLocalPath /passive
+Start-Process msiexec.exe -ArgumentList "/i $webSocketLocalPath /passive" -Wait 
 ### Teams
 $teamsUrl = "https://statics.teams.cdn.office.net/production-windows-x64/1.3.00.21759/Teams_windows_x64.msi"
-$teamsLocalPath = $localPath + "\Teams_windows_x64.msi"
+$teamsLocalPath = $tempFolder + "\Teams_windows_x64.msi"
 $wc.Downloadfile($teamsUrl, $teamsLocalPath)
 $teamsLogPath = $localPath + "\Teams_install.log"
-start /wait msiexec.exe /i $teamsLocalPath /l*v $teamsLogPath ALLUSER=1 /passive
+Start-Process msiexec.exe -ArgumentList "/i $teamsLocalPath /l*v $teamsLogPath ALLUSER=1 /passive" -Wait

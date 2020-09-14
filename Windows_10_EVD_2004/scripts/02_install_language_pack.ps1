@@ -2,7 +2,7 @@
 ## Define download environment variables
 ### Temporary working folder
 $tempFolder = "C:\Temp"
-New-Item -Name $tempFolder -ItemType Directory
+New-Item -Path $tempFolder -ItemType Directory
 ### Language pack URL
 $msContentUrl = "https://software-download.microsoft.com/download/pr/"
 $lpkFileName = "19041.1.191206-1406.vb_release_CLIENTLANGPACKDVD_OEM_MULTI.iso"

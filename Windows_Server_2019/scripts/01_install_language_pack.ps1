@@ -2,7 +2,7 @@
 ## Define download environment variables
 ### Temporary working folder
 $tempFolder = "C:\Temp"
-New-Item -Name $tempFolder -ItemType Directory
+New-Item -Path $tempFolder -ItemType Directory
 ### Download path 
 $lpkLocalPath = $tempFolder + "\LanguagePack.iso"
 ### Language pack URL
