@@ -7,10 +7,10 @@ New-Item -Name $tempFolder -ItemType Directory
 $msContentUrl = "https://software-download.microsoft.com/download/pr/"
 $lpkFileName = "19041.1.191206-1406.vb_release_CLIENTLANGPACKDVD_OEM_MULTI.iso"
 $lpkUrl = $msContentUrl + $lpkFileName
-$lpkLocalPath = $tempFolder + $lpkFileName
+$lpkLocalPath = $tempFolder + '\' + $lpkFileName
 ### FOD file URL
 $fodFileName = "19041.1.191206-1406.vb_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso"
-$fodUrl = $msContentUrl + '\' + $fodFileName
+$fodUrl = $msContentUrl + $fodFileName
 $fodLocalPath = $tempFolder + '\' + $fodFileName
 ## Download
 $wc = New-Object net.webclient
