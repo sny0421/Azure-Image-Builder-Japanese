@@ -63,7 +63,7 @@
                 "customize": [
                     {
                         "type": "PowerShell",
-                        "name": "CreateBuildPath",
+                        "name": "01_install_language_pack",
                         "runElevated": false,
                         "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese-Image/master/Windows_Server_2019/scripts/01_install_language_pack.ps1"
                     },
@@ -78,7 +78,7 @@
                     },
                     {
                         "type": "PowerShell",
-                        "name": "CreateBuildPath",
+                        "name": "02_config_display_language",
                         "runElevated": false,
                         "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese-Image/master/Windows_Server_2019/scripts/02_config_display_language.ps1"
                     },
@@ -100,7 +100,7 @@
                     },
                     {
                         "type": "PowerShell",
-                        "name": "CreateBuildPath",
+                        "name": "03_config_system_language",
                         "runElevated": false,
                         "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese-Image/master/Windows_Server_2019/scripts/03_config_system_language.ps1"
                     },
