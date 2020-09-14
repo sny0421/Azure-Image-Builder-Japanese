@@ -10,8 +10,8 @@ $lpkUrl = $msContentUrl + $lpkFileName
 $lpkLocalPath = $tempFolder + $lpkFileName
 ### FOD file URL
 $fodFileName = "19041.1.191206-1406.vb_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso"
-$fodUrl = $msContentUrl + $fodFileName
-$fodLocalPath = $tempFolder + $fodFileName
+$fodUrl = $msContentUrl + '\' + $fodFileName
+$fodLocalPath = $tempFolder + '\' + $fodFileName
 ## Download
 $wc = New-Object net.webclient
 $wc.Downloadfile($lpkUrl, $lpkLocalPath)

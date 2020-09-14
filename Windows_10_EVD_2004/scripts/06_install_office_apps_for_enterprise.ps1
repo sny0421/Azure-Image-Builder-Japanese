@@ -2,16 +2,16 @@
 $tempFolder = "C:\Temp"
 ## Download Office Deployment Tool (ODT)
 $OdtUrl = "https://download.microsoft.com/download/2/7/A/27AF1BE6-DD20-4CB4-B154-EBAB8A7D4A7E/officedeploymenttool_12827-20268.exe"
-$OdtLocalPath = $tempFolder + "Odt.exe"
+$OdtLocalPath = $tempFolder + "\Odt.exe"
 $wc = New-Object net.webclient
 $wc.Downloadfile($OdtUrl, $OdtLocalPath)
 
 ## Deploy ODT
-Start-Process -FilePath $OdtLocalPath -Wait -ArgumentList "/extract:C:\ /quiet"
+Start-Process -FilePath $OdtLocalPath -Wait -ArgumentList "/extract:$tempFolder /quiet"
 
 ## Install Office ProPlus
-$OfficeLocalPath = $tempFolder + "setup.exe"
-$OfficeConfigPath = $tempFolder + "configure.xml"
+$OfficeLocalPath = $tempFolder + "\setup.exe"
+$OfficeConfigPath = $tempFolder + "\configure.xml"
 Start-Process -FilePath $OfficeLocalPath -Wait -ArgumentList "/configure $OfficeConfigPath"
 
 ### Mount the default user registry hive
@@ -34,7 +34,7 @@ REG ADD HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hide
 # Install OneDrive
 ## Download
 $odUrl = "https://aka.ms/OneDriveWVD-Installer"
-$odFileName = "OneDriveSetup.exe"
+$odFileName = "\OneDriveSetup.exe"
 $odLocalPath = $tempFolder + $odFileName
 $wc = New-Object net.webclient
 $wc.Downloadfile($odUrl, $odLocalPath)
@@ -55,17 +55,17 @@ REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams" /v IsWVDEnvironment /t REG
 ## Install Teams & optimize module
 ### Visual Studio C++ redist
 $vcUrl = "https://aka.ms/vs/16/release/vc_redist.x64.exe"
-$vcLocalPath = $localPath + "vc_redist.x64.exe"
+$vcLocalPath = $localPath + "\vc_redist.x64.exe"
 $wc.Downloadfile($vcUrl, $vcLocalPath)
 Start-Process -FilePath $vcLocalPath -Wait -ArgumentList "/quiet"
 ### Teams WebSocket
 $webSocketUrl = "https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt"
-$webSocketLocalPath = $localPath + "websocket.msi"
+$webSocketLocalPath = $localPath + "\websocket.msi"
 $wc.Downloadfile($webSocketUrl, $webSocketLocalPath)
 start /wait msiexec.exe /i $webSocketLocalPath /passive
 ### Teams
 $teamsUrl = "https://statics.teams.cdn.office.net/production-windows-x64/1.3.00.21759/Teams_windows_x64.msi"
-$teamsLocalPath = $localPath + "Teams_windows_x64.msi"
+$teamsLocalPath = $localPath + "\Teams_windows_x64.msi"
 $wc.Downloadfile($teamsUrl, $teamsLocalPath)
-$teamsLogPath = $localPath + "Teams_install.log"
+$teamsLogPath = $localPath + "\Teams_install.log"
 start /wait msiexec.exe /i $teamsLocalPath /l*v $teamsLogPath ALLUSER=1 /passive
