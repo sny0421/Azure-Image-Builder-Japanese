@@ -29,4 +29,7 @@ REG UNLOAD $DefaultHKEY
 REG IMPORT $welcomePath
 
 # Update UWP Apps
-Get-AppxPackage | Foreach-Object {$ManifestPath = $_.InstallLocation + "\AppxManifest.xml"; Add-AppxPackage -Register $ManifestPath -DisableDevelopmentMode -ForceUpdateFromAnyVersion}
+Get-AppxPackage -AllUsers | Foreach-Object {Add-AppxPackage -Register "$($_.InstallLocation)\AppxManifest.xml" -DisableDevelopmentMode}
+Get-AppxPackage | Foreach-Object {Add-AppxPackage -Register "$($_.InstallLocation)\AppxManifest.xml" -DisableDevelopmentMode}
+
+Get-CimInstance -Namespace "Root\cimv2\mdm\dmmap" -ClassName "MDM_EnterpriseModernAppManagement_AppManagement01" | Invoke-CimMethod -MethodName UpdateScanMethod
