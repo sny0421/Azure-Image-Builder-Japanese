@@ -65,7 +65,7 @@
                         "type": "PowerShell",
                         "name": "01_install_language_pack",
                         "runElevated": false,
-                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese-Image/master/Windows_Server_2019/scripts/01_install_language_pack.ps1"
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_Server_2019/scripts/01_install_language_pack.ps1"
                     },
                     {
                         "type": "WindowsUpdate",
@@ -80,7 +80,7 @@
                         "type": "PowerShell",
                         "name": "02_config_display_language",
                         "runElevated": false,
-                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese-Image/master/Windows_Server_2019/scripts/02_config_display_language.ps1"
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_Server_2019/scripts/02_config_display_language.ps1"
                     },
                     {
                         "type": "WindowsRestart",
@@ -89,20 +89,20 @@
                     {
                         "type": "File",
                         "name": "ja-JP-welcome",
-                        "sourceUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese-Image/master/Windows_Server_2019/registers/ja-JP-welcome.reg",
+                        "sourceUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_Server_2019/registers/ja-JP-welcome.reg",
                         "destination": "C:\\Temp\\ja-JP-welcome.reg"
                     },
                     {
                         "type": "File",
                         "name": "ja-JP-default",
-                        "sourceUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese-Image/master/Windows_Server_2019/registers/ja-JP-default.reg",
+                        "sourceUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_Server_2019/registers/ja-JP-default.reg",
                         "destination": "C:\\Temp\\ja-JP-default.reg"
                     },
                     {
                         "type": "PowerShell",
                         "name": "03_config_system_language",
                         "runElevated": false,
-                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese-Image/master/Windows_Server_2019/scripts/03_config_system_language.ps1"
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_Server_2019/scripts/03_config_system_language.ps1"
                     },
                     {
                         "type": "WindowsRestart",

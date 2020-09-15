@@ -65,7 +65,7 @@
                         "type": "PowerShell",
                         "name": "01_network_policy",
                         "runElevated": false,
-                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese-Image/master/Windows_10_EVD_2004/scripts/01_network_policy.ps1"
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/01_network_policy.ps1"
                     },
                     {
                         "type": "WindowsRestart",
@@ -75,7 +75,7 @@
                         "type": "PowerShell",
                         "name": "02_install_language_pack",
                         "runElevated": false,
-                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese-Image/master/Windows_10_EVD_2004/scripts/02_install_language_pack.ps1"
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/02_install_language_pack.ps1"
                     },
                     {
                         "type": "WindowsUpdate",
@@ -93,20 +93,20 @@
                     {
                         "type": "File",
                         "name": "ja-JP-welcome",
-                        "sourceUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese-Image/master/Windows_10_EVD_2004/registers/ja-JP-welcome.reg",
+                        "sourceUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/registers/ja-JP-welcome.reg",
                         "destination": "C:\\Temp\\ja-JP-welcome.reg"
                     },
                     {
                         "type": "File",
                         "name": "ja-JP-default",
-                        "sourceUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese-Image/master/Windows_10_EVD_2004/registers/ja-JP-default.reg",
+                        "sourceUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/registers/ja-JP-default.reg",
                         "destination": "C:\\Temp\\ja-JP-default.reg"
                     },
                     {
                         "type": "PowerShell",
                         "name": "03_config_display_language",
                         "runElevated": false,
-                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese-Image/master/Windows_10_EVD_2004/scripts/03_config_display_language.ps1"
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/03_config_display_language.ps1"
                     },
                     {
                         "type": "WindowsRestart",
@@ -116,7 +116,7 @@
                         "type": "PowerShell",
                         "name": "04_config_system_language",
                         "runElevated": false,
-                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese-Image/master/Windows_10_EVD_2004/scripts/04_config_system_language.ps1"
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/04_config_system_language.ps1"
                     },
                     {
                         "type": "WindowsRestart",
@@ -126,31 +126,31 @@
                         "type": "PowerShell",
                         "name": "05_install_fslogix",
                         "runElevated": false,
-                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese-Image/master/Windows_10_EVD_2004/scripts/05_install_fslogix.ps1"
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/05_install_fslogix.ps1"
                     },
                     {
                         "type": "File",
                         "name": "office_configure",
-                        "sourceUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese-Image/master/Windows_10_EVD_2004/config/configure.xml",
+                        "sourceUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/config/configure.xml",
                         "destination": "C:\\Temp\\configure.xml"
                     },
                     {
                         "type": "PowerShell",
                         "name": "06_install_office_apps_for_enterprise",
                         "runElevated": false,
-                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese-Image/master/Windows_10_EVD_2004/scripts/06_install_office_apps_for_enterprise.ps1"
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/06_install_office_apps_for_enterprise.ps1"
                     },
                     {
                         "type": "File",
                         "name": "start_layout",
-                        "sourceUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese-Image/master/Windows_10_EVD_2004/config/layout.xml",
+                        "sourceUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/config/layout.xml",
                         "destination": "C:\\Temp\\layout.xml"
                     },
                     {
                         "type": "PowerShell",
                         "name": "07_install_custom_app",
                         "runElevated": false,
-                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese-Image/master/Windows_10_EVD_2004/scripts/07_install_custom_app.ps1"
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/07_install_custom_app.ps1"
                     },
                     {
                         "type": "WindowsUpdate",
