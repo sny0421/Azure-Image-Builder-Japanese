@@ -3,6 +3,11 @@
 ### Temporary working folder
 $tempFolder = "C:\Temp"
 New-Item -Path $tempFolder -ItemType Directory
+
+## Disable delete unused language pack
+Disable-ScheduledTask -TaskPath "\Microsoft\Windows\AppxDeploymentClient\" -TaskName "Pre-staged app cleanup"
+REG ADD "HKLM\Software\Policies\Microsoft\Control Panel\International" /v "!BlockCleanupOfUnusedPreinstalled" /t REG_DWORD /d 1 /f
+
 ### Language pack URL
 $msContentUrl = "https://software-download.microsoft.com/download/pr/"
 $lpkFileName = "19041.1.191206-1406.vb_release_CLIENTLANGPACKDVD_OEM_MULTI.iso"
