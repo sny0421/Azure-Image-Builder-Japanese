@@ -39,12 +39,12 @@ $odLocalPath = $tempFolder + $odFileName
 $wc = New-Object net.webclient
 $wc.Downloadfile($odUrl, $odLocalPath)
 ## Uninstall exist OneDrive
-Start-Process -FilePath $odLocalPath -Wait -ArgumentList "/uninstall"
+Start-Process -FilePath $odLocalPath -ArgumentList "/uninstall" -Wait
 
 ## Enable AllUser Mode
 REG ADD "HKLM\Software\Microsoft\OneDrive" /v "AllUsersInstall" /t REG_DWORD /d 1 /reg:64
 ## Install OneDrive
-Start-Process -FilePath $odLocalPath -ArgumentList "/allusers"
+Start-Process -FilePath $odLocalPath -ArgumentList "/allusers" -Wait
 ## Set OneDrive behavior
 REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDrive /t REG_SZ /d "C:\Program Files (x86)\Microsoft OneDrive\OneDrive.exe /background" /f
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "SilentAccountConfig" /t REG_DWORD /d 1 /f
@@ -57,7 +57,7 @@ REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams" /v IsWVDEnvironment /t REG
 $vcUrl = "https://aka.ms/vs/16/release/vc_redist.x64.exe"
 $vcLocalPath = $tempFolder + "\vc_redist.x64.exe"
 $wc.Downloadfile($vcUrl, $vcLocalPath)
-Start-Process -FilePath $vcLocalPath -Wait -ArgumentList "/quiet"
+Start-Process -FilePath $vcLocalPath -ArgumentList "/quiet" -Wait
 ### Teams WebSocket
 $webSocketUrl = "https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt"
 $webSocketLocalPath = $tempFolder + "\websocket.msi"
@@ -67,5 +67,5 @@ Start-Process msiexec.exe -ArgumentList "/i $webSocketLocalPath /passive" -Wait
 $teamsUrl = "https://statics.teams.cdn.office.net/production-windows-x64/1.3.00.21759/Teams_windows_x64.msi"
 $teamsLocalPath = $tempFolder + "\Teams_windows_x64.msi"
 $wc.Downloadfile($teamsUrl, $teamsLocalPath)
-$teamsLogPath = $localPath + "\Teams_install.log"
+$teamsLogPath = $teamsUrl + "\Teams_install.log"
 Start-Process msiexec.exe -ArgumentList "/i $teamsLocalPath /l*v $teamsLogPath ALLUSER=1 /passive" -Wait

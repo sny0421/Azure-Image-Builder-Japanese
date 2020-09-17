@@ -12,9 +12,12 @@ Set-WinSystemLocale -SystemLocale ja-JP
 
 # Set timezone to Tokyo (JST)
 Set-TimeZone -Id "Tokyo Standard Time"
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnableTimeZoneRedirection /t REG_DWORD /d 1 /f
 
 # Set culture to Japan
 Set-Culture ja-JP
+
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v NoAutoUpdate /t REG_DWORD /d 1 /f
 
 # Configute default user and system display language
 $DefaultHKEY = "HKU\DEFAULT_USER"
@@ -28,10 +31,8 @@ REG IMPORT $defaultPath
 REG UNLOAD $DefaultHKEY
 REG IMPORT $welcomePath
 
+gpupdate /force
 # Update UWP Apps
-Get-AppxPackage -AllUsers | Foreach-Object {Add-AppxPackage -Register "$($_.InstallLocation)\AppxManifest.xml" -DisableDevelopmentMode}
-Get-AppxPackage | Foreach-Object {Add-AppxPackage -Register "$($_.InstallLocation)\AppxManifest.xml" -DisableDevelopmentMode}
-
 Get-CimInstance -Namespace "Root\cimv2\mdm\dmmap" -ClassName "MDM_EnterpriseModernAppManagement_AppManagement01" | Invoke-CimMethod -MethodName UpdateScanMethod
 
-Start-Sleep -s 600
+Start-Sleep -s 900

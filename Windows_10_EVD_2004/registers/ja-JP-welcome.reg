@@ -3,16 +3,15 @@ Windows Registry Editor Version 5.00
 [HKEY_USERS\.DEFAULT\Control Panel\International]
 "Locale"="00000411"
 "LocaleName"="ja-JP"
-"s1159"="ÂçàÂâç"
-"s2359"="ÂçàÂæå"
-"sCountry"="Japan"
+"s1159"="åﬂëO"
+"s2359"="åﬂå„"
 "sCurrency"="\"
 "sDate"="/"
 "sDecimal"="."
 "sGrouping"="3;0"
 "sLanguage"="JPN"
 "sList"=","
-"sLongDate"="yyyy'Âπ¥'M'Êúà'd'Êó•'"
+"sLongDate"="yyyy'îN'M'åé'd'ì˙'"
 "sMonDecimalSep"="."
 "sMonGrouping"="3;0"
 "sMonThousandSep"=","
@@ -24,7 +23,7 @@ Windows Registry Editor Version 5.00
 "sTime"=":"
 "sTimeFormat"="H:mm:ss"
 "sShortTime"="H:mm"
-"sYearMonth"="yyyy'Âπ¥'M'Êúà'"
+"sYearMonth"="yyyy'îN'M'åé'"
 "iCalendarType"="1"
 "iCountry"="81"
 "iCurrDigits"="0"
@@ -48,7 +47,7 @@ Windows Registry Editor Version 5.00
 "Nation"="122"
 
 [HKEY_USERS\.DEFAULT\Control Panel\International\User Profile]
-"Languages"=hex(7):6a,00,61,00,00,00,65,00,6e,00,2d,00,55,00,53,00,00,00
+"Languages"=hex(7):6a,00,61,00,00,00,65,00,6e,00,2d,00,55,00,53,00,00,00,00,00
 "ShowAutoCorrection"=dword:00000001
 "ShowTextPrediction"=dword:00000001
 "ShowCasing"=dword:00000001
@@ -57,16 +56,19 @@ Windows Registry Editor Version 5.00
 [HKEY_USERS\.DEFAULT\Control Panel\International\User Profile\ja]
 "CachedLanguageName"="@Winlangdb.dll,-1230"
 "0411:{03B5835F-F03C-411B-9CE2-AA23E1171E36}{A76C93D9-5523-4E90-AAFA-4DB112F9AC76}"=dword:00000001
+"FeaturesToInstall"=dword:000000ff
 
 [HKEY_USERS\.DEFAULT\Control Panel\International\User Profile System Backup]
-"Languages"=hex(7):6a,00,61,00,00,00,65,00,6e,00,2d,00,55,00,53,00,00,00
+"Languages"=hex(7):6a,00,61,00,00,00,65,00,6e,00,2d,00,55,00,53,00,00,00,00,00
 "ShowAutoCorrection"=dword:00000001
 "ShowTextPrediction"=dword:00000001
 "ShowCasing"=dword:00000001
 "ShowShiftLock"=dword:00000001
 
 [HKEY_USERS\.DEFAULT\Control Panel\International\User Profile System Backup\ja]
+"CachedLanguageName"="@Winlangdb.dll,-1230"
 "0411:{03B5835F-F03C-411B-9CE2-AA23E1171E36}{A76C93D9-5523-4E90-AAFA-4DB112F9AC76}"=dword:00000001
+"FeaturesToInstall"=dword:000000ff
 
 [HKEY_USERS\.DEFAULT\Keyboard Layout]
 
