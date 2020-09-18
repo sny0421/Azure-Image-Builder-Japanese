@@ -28,8 +28,8 @@ REG ADD "HKU\TempDefault\software\policies\microsoft\office\16.0\outlook\cached 
 REG unload HKU\TempDefault
 
 #### Set the Office Update UI behavior
-REG ADD HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hideupdatenotifications /t REG_DWORD /d 1 /f
-REG ADD HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hideenabledisableupdates /t REG_DWORD /d 1 /f
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate" /v hideupdatenotifications /t REG_DWORD /d 1 /f
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate" /v hideenabledisableupdates /t REG_DWORD /d 1 /f
 
 # Install OneDrive
 ## Download
