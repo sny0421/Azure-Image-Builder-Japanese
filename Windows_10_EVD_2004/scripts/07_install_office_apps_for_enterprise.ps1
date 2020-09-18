@@ -67,5 +67,5 @@ Start-Process msiexec.exe -ArgumentList "/i $webSocketLocalPath /passive" -Wait
 $teamsUrl = "https://statics.teams.cdn.office.net/production-windows-x64/1.3.00.21759/Teams_windows_x64.msi"
 $teamsLocalPath = $tempFolder + "\Teams_windows_x64.msi"
 $wc.Downloadfile($teamsUrl, $teamsLocalPath)
-$teamsLogPath = $teamsUrl + "\Teams_install.log"
+$teamsLogPath = $tempFolder + "\Teams_install.log"
 Start-Process msiexec.exe -ArgumentList "/i $teamsLocalPath /l*v $teamsLogPath ALLUSER=1 /passive" -Wait
