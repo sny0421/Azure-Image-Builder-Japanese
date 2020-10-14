@@ -3,10 +3,12 @@
     <Product ID="O365ProPlusRetail">
       <Language ID="ja-jp" />
       <Language ID="MatchOS" />
+      <ExcludeApp ID="Access" />
       <ExcludeApp ID="Groove" />
       <ExcludeApp ID="Lync" />
-      <ExcludeApp ID="Teams" />
       <ExcludeApp ID="OneDrive" />
+      <ExcludeApp ID="Publisher" />
+      <ExcludeApp ID="Teams" />
     </Product>
   </Add>
   <RemoveMSI/>

@@ -55,12 +55,3 @@ foreach ($appx in $allAppxBundles) {
     }
 }
 DisMount-DiskImage $ibaLocalPath
-
-# Update UWP Apps
-Get-CimInstance -Namespace "Root\cimv2\mdm\dmmap" -ClassName "MDM_EnterpriseModernAppManagement_AppManagement01" | Invoke-CimMethod -MethodName UpdateScanMethod
-
-Start-Sleep -s 900
-
-REG ADD "HKLM\Software\Policies\Microsoft\WindowsStore" /v "AutoDownload" /t REG_DWORD /d 2 /f
-
-gpupdate /force

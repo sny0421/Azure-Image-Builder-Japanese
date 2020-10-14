@@ -48,3 +48,6 @@ Add-WindowsPackage -Online -PackagePath $fodDriveLetter\Microsoft-Windows-PowerS
 Add-WindowsPackage -Online -PackagePath $fodDriveLetter\Microsoft-Windows-Printing-WFS-FoD-Package~31bf3856ad364e35~amd64~ja-jp~.cab
 Add-WindowsPackage -Online -PackagePath $fodDriveLetter\Microsoft-Windows-StepsRecorder-Package~31bf3856ad364e35~amd64~ja-jp~.cab
 Add-WindowsPackage -Online -PackagePath $fodDriveLetter\Microsoft-Windows-WordPad-FoD-Package~31bf3856ad364e35~amd64~ja-jp~.cab
+
+DisMount-DiskImage $lpkLocalPath
+DisMount-DiskImage $fodLocalPath

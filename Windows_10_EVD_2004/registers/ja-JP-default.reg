@@ -53,6 +53,8 @@ Windows Registry Editor Version 5.00
 "ShowTextPrediction"=dword:00000001
 "ShowCasing"=dword:00000001
 "ShowShiftLock"=dword:00000001
+"WindowsOverride"="ja-JP"
+"UserLocaleFromLanguageProfileOptOut"=dword:00000001
 
 [HKEY_USERS\DEFAULT_USER\Control Panel\International\User Profile\ja]
 "CachedLanguageName"="@Winlangdb.dll,-1230"
@@ -64,6 +66,8 @@ Windows Registry Editor Version 5.00
 "ShowTextPrediction"=dword:00000001
 "ShowCasing"=dword:00000001
 "ShowShiftLock"=dword:00000001
+"WindowsOverride"="ja-JP"
+"UserLocaleFromLanguageProfileOptOut"=dword:00000001
 
 [HKEY_USERS\DEFAULT_USER\Control Panel\International\User Profile System Backup\ja]
 "CachedLanguageName"="@Winlangdb.dll,-1230"
