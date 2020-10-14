@@ -1,5 +1,3 @@
-
-
 ##Set Inbox App Package Content Stores##
 $tempFolder = "C:\Temp"
 
