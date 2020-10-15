@@ -116,15 +116,25 @@
                     },
                     {
                         "type": "PowerShell",
-                        "name": "05_update_uwp",
+                        "name": "05_config_default_language",
                         "runElevated": false,
-                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/05_update_uwp.ps1"
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/05_config_default_language.ps1"
+                    },
+                    {
+                        "type": "WindowsRestart",
+                        "restartTimeout": "20m"
                     },
                     {
                         "type": "PowerShell",
-                        "name": "06_install_fslogix",
+                        "name": "06_update_inbox_app",
                         "runElevated": false,
-                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/06_install_fslogix.ps1"
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/06_update_inbox_app.ps1"
+                    },
+                    {
+                        "type": "PowerShell",
+                        "name": "07_install_fslogix",
+                        "runElevated": false,
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/07_install_fslogix.ps1"
                     },
                     {
                         "type": "File",
@@ -134,9 +144,9 @@
                     },
                     {
                         "type": "PowerShell",
-                        "name": "07_install_office_apps_for_enterprise",
+                        "name": "08_install_office_apps_for_enterprise",
                         "runElevated": false,
-                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/07_install_office_apps_for_enterprise.ps1"
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/08_install_office_apps_for_enterprise.ps1"
                     },
                     {
                         "type": "File",
@@ -146,9 +156,9 @@
                     },
                     {
                         "type": "PowerShell",
-                        "name": "08_install_custom_app",
+                        "name": "09_install_custom_app",
                         "runElevated": false,
-                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/08_install_custom_app.ps1"
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/09_install_custom_app.ps1"
                     },
                     {
                         "type": "WindowsUpdate",

@@ -17,8 +17,6 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnab
 # Set culture to Japan
 Set-Culture ja-JP
 
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v NoAutoUpdate /t REG_DWORD /d 1 /f
-
 # Configute default user and system display language
 $DefaultHKEY = "HKU\DEFAULT_USER"
 $DefaultRegPath = "C:\Users\Default\NTUSER.DAT"
@@ -30,5 +28,3 @@ REG LOAD $DefaultHKEY $DefaultRegPath
 REG IMPORT $defaultPath
 REG UNLOAD $DefaultHKEY
 REG IMPORT $welcomePath
-
-gpupdate /force

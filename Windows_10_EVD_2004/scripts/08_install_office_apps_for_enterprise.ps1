@@ -44,7 +44,7 @@ Start-Process -FilePath $odLocalPath -ArgumentList "/uninstall" -Wait
 ## Enable AllUser Mode
 REG ADD "HKLM\Software\Microsoft\OneDrive" /v "AllUsersInstall" /t REG_DWORD /d 1 /reg:64
 ## Install OneDrive
-Start-Process -FilePath $odLocalPath -ArgumentList "/allusers" -Wait
+Start-Process -FilePath $odLocalPath -ArgumentList "/allusers"
 ## Set OneDrive behavior
 REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDrive /t REG_SZ /d "C:\Program Files (x86)\Microsoft OneDrive\OneDrive.exe /background" /f
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "SilentAccountConfig" /t REG_DWORD /d 1 /f

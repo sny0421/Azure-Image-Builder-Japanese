@@ -24,15 +24,21 @@ $wc.Downloadfile($fodUrl, $fodLocalPath)
 
 # Install language pack
 ## Language pack ISO mount
-Mount-DiskImage $lpkLocalPath
-$lpkDriveLetter = (Get-DiskImage -ImagePath $lpkLocalPath | Get-Volume).DriveLetter + ':'
+do{
+    Mount-DiskImage $lpkLocalPath
+    $lpkDriveLetter = (Get-DiskImage -ImagePath $lpkLocalPath | Get-Volume).DriveLetter + ':'
+} while ($lpkDriveLetter.length -gt 1)
+## Install
 $lpkCabPath = $lpkDriveLetter + '\x64\langpacks'
 $lpkAppxPath = $lpkDriveLetter + '\LocalExperiencePack\ja-jp'
 Add-AppProvisionedPackage -Online -PackagePath $lpkAppxPath\LanguageExperiencePack.ja-jp.Neutral.appx -LicensePath $lpkAppxPath\License.xml
 Add-WindowsPackage -Online -PackagePath $lpkCabPath\Microsoft-Windows-Client-Language-Pack_x64_ja-jp.cab
+
 ## FOD file ISO mount 
-Mount-DiskImage $fodLocalPath
-$fodDriveLetter = (Get-DiskImage -ImagePath $fodLocalPath | Get-Volume).DriveLetter + ':'
+do{
+    Mount-DiskImage $fodLocalPath
+    $fodDriveLetter = (Get-DiskImage -ImagePath $fodLocalPath | Get-Volume).DriveLetter + ':'
+} while ($fodDriveLetter.length -gt 1)
 ## Install
 Add-WindowsPackage -Online -PackagePath $fodDriveLetter\Microsoft-Windows-LanguageFeatures-Basic-ja-jp-Package~31bf3856ad364e35~amd64~~.cab
 Add-WindowsPackage -Online -PackagePath $fodDriveLetter\Microsoft-Windows-LanguageFeatures-Fonts-Jpan-Package~31bf3856ad364e35~amd64~~.cab
