@@ -1,0 +1,190 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "imageTemplateName": {
+            "type": "string"
+        },
+        "api-version": {
+            "type": "string"
+        },
+        "aibLocation": {
+            "type": "string",
+            "defaultValue": "westus"
+        },
+        "aibManagedId": {
+            "type": "string"
+        },
+        "imageGalleryName": {
+            "type": "string"
+        },
+        "imageName": {
+            "type": "string"
+        }
+    },
+    "variables": {
+    },
+    "resources": [
+        {
+            "name": "[parameters('imageTemplateName')]",
+            "type": "Microsoft.VirtualMachineImages/imageTemplates",
+            "apiVersion": "[parameters('api-version')]",
+            "location": "[parameters('aibLocation')]",
+            "dependsOn": [
+            ],
+            "tags": {
+                "imagebuilderTemplate": "windows10-evd-2004",
+                "userIdentity": "enabled"
+            },
+            "identity": {
+                "type": "UserAssigned",
+                "userAssignedIdentities": {
+                    "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('aibManagedId'))]": {
+                    }
+                }
+            },
+            "properties": {
+                "buildTimeoutInMinutes": 100,
+                "vmProfile": {
+                    "vmSize": "Standard_D2_v3",
+                    "osDiskSizeGB": 127
+                },
+                "source": {
+                    "type": "PlatformImage",
+                    "publisher": "MicrosoftWindowsDesktop",
+                    "offer": "Windows-10",
+                    "sku": "20h1-evd",
+                    "version": "latest"
+                },
+                "customize": [
+                    {
+                        "type": "PowerShell",
+                        "name": "01_network_policy",
+                        "runElevated": false,
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/01_network_policy.ps1"
+                    },
+                    {
+                        "type": "PowerShell",
+                        "name": "02_install_language_pack",
+                        "runElevated": false,
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/02_install_language_pack.ps1"
+                    },
+                    {
+                        "type": "PowerShell",
+                        "name": "03_config_display_language",
+                        "runElevated": false,
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/03_config_display_language.ps1"
+                    },
+                    {
+                        "type": "WindowsUpdate",
+                        "searchCriteria": "IsInstalled=0",
+                        "filters": [
+                            "exclude:$_.Title -like '*Preview*'",
+                            "include:$true"
+                        ],
+                        "updateLimit": 20
+                    },
+                    {
+                        "type": "WindowsRestart",
+                        "restartTimeout": "20m"
+                    },
+                    {
+                        "type": "File",
+                        "name": "ja-JP-welcome",
+                        "sourceUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/registers/ja-JP-welcome.reg",
+                        "destination": "C:\\Temp\\ja-JP-welcome.reg"
+                    },
+                    {
+                        "type": "File",
+                        "name": "ja-JP-default",
+                        "sourceUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/registers/ja-JP-default.reg",
+                        "destination": "C:\\Temp\\ja-JP-default.reg"
+                    },
+                    {
+                        "type": "PowerShell",
+                        "name": "04_config_system_language",
+                        "runElevated": false,
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/04_config_system_language.ps1"
+                    },
+                    {
+                        "type": "WindowsRestart",
+                        "restartTimeout": "20m"
+                    },
+                    {
+                        "type": "PowerShell",
+                        "name": "05_config_default_language",
+                        "runElevated": false,
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/05_config_default_language.ps1"
+                    },
+                    {
+                        "type": "WindowsRestart",
+                        "restartTimeout": "20m"
+                    },
+                    {
+                        "type": "PowerShell",
+                        "name": "06_update_inbox_app",
+                        "runElevated": false,
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/06_update_inbox_app.ps1"
+                    },
+                    {
+                        "type": "PowerShell",
+                        "name": "07_install_fslogix",
+                        "runElevated": false,
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/07_install_fslogix.ps1"
+                    },
+                    {
+                        "type": "File",
+                        "name": "office_configure",
+                        "sourceUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/config/configure.xml",
+                        "destination": "C:\\Temp\\configure.xml"
+                    },
+                    {
+                        "type": "PowerShell",
+                        "name": "08_install_office_apps_for_enterprise",
+                        "runElevated": false,
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/08_install_office_apps_for_enterprise.ps1"
+                    },
+                    {
+                        "type": "File",
+                        "name": "start_layout",
+                        "sourceUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/config/layout.xml",
+                        "destination": "C:\\Temp\\layout.xml"
+                    },
+                    {
+                        "type": "PowerShell",
+                        "name": "09_install_custom_app",
+                        "runElevated": false,
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/09_install_custom_app.ps1"
+                    },
+                    {
+                        "type": "WindowsUpdate",
+                        "searchCriteria": "IsInstalled=0",
+                        "filters": [
+                            "exclude:$_.Title -like '*Preview*'",
+                            "include:$true"
+                        ],
+                        "updateLimit": 20
+                    },
+                    {
+                        "type": "WindowsRestart",
+                        "restartTimeout": "5m"
+                    }
+                ],
+                "distribute": [
+                    {
+                        "type": "SharedImage",
+                        "galleryImageId": "[resourceId('Microsoft.Compute/galleries/images', parameters('imageGalleryName'), parameters('imageName'))]",
+                        "runOutputName": "[concat(parameters('imageTemplateName'), 'Output')]",
+                        "artifactTags": {
+                            "source": "azureVmImageBuilder",
+                            "baseosimg": "Windows10EVD2004"
+                        },
+                        "replicationRegions": [
+                            "[parameters('aibLocation')]"
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}
