@@ -37,12 +37,12 @@ Install-Module -Name Az.ManagedServiceIdentity
 Import-Module -Name Az.ManagedServiceIdentity
 
 # マネージド ID の作成
-$idenityName = "aibIdentityPreview"
-New-AzUserAssignedIdentity -ResourceGroupName $rgName -Name $idenityName
+$identityName = "aibIdentityPreview"
+New-AzUserAssignedIdentity -ResourceGroupName $rgName -Name $identityName
 ## マネージド ID のリソース ID
-$idenityNameResourceId = $(Get-AzUserAssignedIdentity -ResourceGroupName $rgName -Name $idenityName).Id
+$identityNameResourceId = $(Get-AzUserAssignedIdentity -ResourceGroupName $rgName -Name $identityName).Id
 ## マネージド ID のプリンシパル ID
-$idenityNamePrincipalId = $(Get-AzUserAssignedIdentity -ResourceGroupName $rgName -Name $idenityName).PrincipalId
+$identityNamePrincipalId = $(Get-AzUserAssignedIdentity -ResourceGroupName $rgName -Name $identityName).PrincipalId
 
 # AIB 用のカスタムロールを作成
 $imageRoleDefName = "Azure Image Builder Image Def Preview"
@@ -61,7 +61,7 @@ Invoke-WebRequest -Uri $aibRoleImageCreationUrl -OutFile $aibRoleImageCreationPa
 New-AzRoleDefinition -InputFile $aibRoleImageCreationPath
 
 ## マネージド ID でリソースグループを操作できるようカスタムロールを割り当て
-New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$rgName"
+New-AzRoleAssignment -ObjectId $identityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$rgName"
 ```
 
 ## 共有イメージギャラリーの作成
@@ -97,7 +97,7 @@ $templateFilePath = "image-build-template.json"
 Invoke-WebRequest -Uri $templateUrl -OutFile $templateFilePath -UseBasicParsing
 
 # イメージテンプレートのデプロイ
-New-AzResourceGroupDeployment -ResourceGroupName $rgName -TemplateFile $templateFilePath -api-version "2019-05-01-preview" -imageTemplateName $imageTemplateName -aibLocation $aibLocation -aibManagedId $idenityName -imageGalleryName $galleryName -imageName $imageName -replicaLocation $replicaLocation
+New-AzResourceGroupDeployment -ResourceGroupName $rgName -TemplateFile $templateFilePath -api-version "2019-05-01-preview" -imageTemplateName $imageTemplateName -aibLocation $aibLocation -aibManagedId $identityName -imageGalleryName $galleryName -imageName $imageName -replicaLocation $replicaLocation
 
 # イメージテンプレートからのイメージ作成実行
 Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $rgName -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2019-05-01-preview" -Action Run -Force
