@@ -10,6 +10,7 @@ $ibaLocalPath = $tempFolder + '\' + $ibaFileName
 $wc = New-Object net.webclient
 $wc.Downloadfile($ibaUrl, $ibaLocalPath)
 
+
 Mount-DiskImage $ibaLocalPath
 $ibaDriveLetter = (Get-DiskImage -ImagePath $ibaLocalPath | Get-Volume).DriveLetter + ':'
 $ibaCabPath = $ibaDriveLetter + '\amd64fre'
@@ -20,37 +21,39 @@ $allAppx = Get-Item $ibaCabPath\*.appx | Select-Object name
 $allAppxBundles = Get-Item $ibaCabPath\*.appxbundle | Select-Object name
 $allAppxXML = Get-Item $ibaCabPath\*.xml | Select-Object name
 foreach ($appx in $allAppx) {
-    $appname = $appx.name.substring(0,$appx.name.length-5)
-    $appnamexml = $appname + ".xml"
-    $pathappx = $ibaCabPath + "\" + $appx.Name
-    $pathxml = $ibaCabPath + "\" + $appnamexml
+  $appname = $appx.name.substring(0, $appx.name.length - 5)
+  $appnamexml = $appname + ".xml"
+  $pathappx = $ibaCabPath + "\" + $appx.Name
+  $pathxml = $ibaCabPath + "\" + $appnamexml
     
-    if($allAppxXML.name.Contains($appnamexml)){
+  if ($allAppxXML.name.Contains($appnamexml)) {
     
     Write-Host "Handeling with xml $appname"  
   
     Add-AppxProvisionedPackage -Online -PackagePath $pathappx -LicensePath $pathxml
-    } else {
+  }
+  else {
       
-      Write-Host "Handeling without xml $appname"
+    Write-Host "Handeling without xml $appname"
       
-      Add-AppxProvisionedPackage -Online -PackagePath $pathappx -skiplicense
-    }
+    Add-AppxProvisionedPackage -Online -PackagePath $pathappx -skiplicense
+  }
 }
 foreach ($appx in $allAppxBundles) {
-    $appname = $appx.name.substring(0,$appx.name.length-11)
-    $appnamexml = $appname + ".xml"
-    $pathappx = $ibaCabPath + "\" + $appx.Name
-    $pathxml = $ibaCabPath + "\" + $appnamexml
+  $appname = $appx.name.substring(0, $appx.name.length - 11)
+  $appnamexml = $appname + ".xml"
+  $pathappx = $ibaCabPath + "\" + $appx.Name
+  $pathxml = $ibaCabPath + "\" + $appnamexml
     
-    if($allAppxXML.name.Contains($appnamexml)){
+  if ($allAppxXML.name.Contains($appnamexml)) {
     Write-Host "Handeling with xml $appname"
     
     Add-AppxProvisionedPackage -Online -PackagePath $pathappx -LicensePath $pathxml
-    } else {
-       Write-Host "Handeling without xml $appname"
-      Add-AppxProvisionedPackage -Online -PackagePath $pathappx -skiplicense
-    }
+  }
+  else {
+    Write-Host "Handeling without xml $appname"
+    Add-AppxProvisionedPackage -Online -PackagePath $pathappx -skiplicense
+  }
 }
 DisMount-DiskImage $ibaLocalPath
 
