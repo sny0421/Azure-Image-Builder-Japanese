@@ -1,5 +1,5 @@
 # Install Office ProPlus
-$tempFolder = "C:\Temp"
+$tempFolder = "C:\SIG_Temp"
 ## Download Office Deployment Tool (ODT)
 $OdtUrl = "https://download.microsoft.com/download/2/7/A/27AF1BE6-DD20-4CB4-B154-EBAB8A7D4A7E/officedeploymenttool_12827-20268.exe"
 $OdtLocalPath = $tempFolder + "\Odt.exe"
@@ -48,24 +48,3 @@ Start-Process -FilePath $odLocalPath -ArgumentList "/allusers"
 ## Set OneDrive behavior
 REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDrive /t REG_SZ /d "C:\Program Files (x86)\Microsoft OneDrive\OneDrive.exe /background" /f
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "SilentAccountConfig" /t REG_DWORD /d 1 /f
-
-# Install Teams
-## Set WVD environment mode
-REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams" /v IsWVDEnvironment /t REG_DWORD /d 1 /f
-## Install Teams & optimize module
-### Visual Studio C++ redist
-$vcUrl = "https://aka.ms/vs/16/release/vc_redist.x64.exe"
-$vcLocalPath = $tempFolder + "\vc_redist.x64.exe"
-$wc.Downloadfile($vcUrl, $vcLocalPath)
-Start-Process -FilePath $vcLocalPath -ArgumentList "/quiet" -Wait
-### Teams WebSocket
-$webSocketUrl = "https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt"
-$webSocketLocalPath = $tempFolder + "\websocket.msi"
-$wc.Downloadfile($webSocketUrl, $webSocketLocalPath)
-Start-Process msiexec.exe -ArgumentList "/i $webSocketLocalPath /passive" -Wait 
-### Teams
-$teamsUrl = "https://statics.teams.cdn.office.net/production-windows-x64/1.3.00.21759/Teams_windows_x64.msi"
-$teamsLocalPath = $tempFolder + "\Teams_windows_x64.msi"
-$wc.Downloadfile($teamsUrl, $teamsLocalPath)
-$teamsLogPath = $tempFolder + "\Teams_install.log"
-Start-Process msiexec.exe -ArgumentList "/i $teamsLocalPath /l*v $teamsLogPath ALLUSER=1 /passive" -Wait

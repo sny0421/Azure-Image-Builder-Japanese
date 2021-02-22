@@ -63,9 +63,15 @@
                 "customize": [
                     {
                         "type": "PowerShell",
-                        "name": "01_network_policy",
+                        "name": "00_prepare_temporary_workspace",
                         "runElevated": false,
-                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/01_network_policy.ps1"
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/00_prepare_temporary_workspace.ps1"
+                    },
+                    {
+                        "type": "PowerShell",
+                        "name": "01_config_network_policy",
+                        "runElevated": false,
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/01_config_network_policy.ps1"
                     },
                     {
                         "type": "PowerShell",
@@ -75,9 +81,19 @@
                     },
                     {
                         "type": "PowerShell",
-                        "name": "03_config_display_language",
+                        "name": "03_install_features_on_demand",
                         "runElevated": false,
-                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/03_config_display_language.ps1"
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/03_install_features_on_demand.ps1"
+                    },
+                    {
+                        "type": "PowerShell",
+                        "name": "04_config_display_language",
+                        "runElevated": false,
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/04_config_display_language.ps1"
+                    },
+                    {
+                        "type": "WindowsRestart",
+                        "restartTimeout": "20m"
                     },
                     {
                         "type": "WindowsUpdate",
@@ -96,19 +112,19 @@
                         "type": "File",
                         "name": "ja-JP-welcome",
                         "sourceUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/registers/ja-JP-welcome.reg",
-                        "destination": "C:\\Temp\\ja-JP-welcome.reg"
+                        "destination": "C:\\SIG_Temp\\ja-JP-welcome.reg"
                     },
                     {
                         "type": "File",
                         "name": "ja-JP-default",
                         "sourceUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/registers/ja-JP-default.reg",
-                        "destination": "C:\\Temp\\ja-JP-default.reg"
+                        "destination": "C:\\SIG_Temp\\ja-JP-default.reg"
                     },
                     {
                         "type": "PowerShell",
-                        "name": "04_config_system_language",
+                        "name": "05_config_system_language",
                         "runElevated": false,
-                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/04_config_system_language.ps1"
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/05_config_system_language.ps1"
                     },
                     {
                         "type": "WindowsRestart",
@@ -116,49 +132,67 @@
                     },
                     {
                         "type": "PowerShell",
-                        "name": "05_config_default_language",
+                        "name": "06_config_default_language",
                         "runElevated": false,
-                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/05_config_default_language.ps1"
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/06_config_default_language.ps1"
                     },
                     {
                         "type": "WindowsRestart",
                         "restartTimeout": "20m"
-                    },
-                    {
-                        "type": "PowerShell",
-                        "name": "06_update_inbox_app",
-                        "runElevated": false,
-                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/06_update_inbox_app.ps1"
-                    },
-                    {
-                        "type": "PowerShell",
-                        "name": "07_install_fslogix",
-                        "runElevated": false,
-                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/07_install_fslogix.ps1"
                     },
                     {
                         "type": "File",
                         "name": "office_configure",
                         "sourceUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/config/configure.xml",
-                        "destination": "C:\\Temp\\configure.xml"
+                        "destination": "C:\\SIG_Temp\\configure.xml"
                     },
                     {
                         "type": "PowerShell",
-                        "name": "08_install_office_apps_for_enterprise",
+                        "name": "07_install_office_apps_for_enterprise",
                         "runElevated": false,
-                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/08_install_office_apps_for_enterprise.ps1"
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/07_install_office_apps_for_enterprise.ps1"
+                    },
+                    {
+                        "type": "PowerShell",
+                        "name": "08_install_optimized_teams",
+                        "runElevated": false,
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/08_install_optimized_teams.ps1"
+                    },
+                    {
+                        "type": "PowerShell",
+                        "name": "09_install_fslogix",
+                        "runElevated": false,
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/09_install_fslogix.ps1"
+                    },
+                    {
+                        "type": "PowerShell",
+                        "name": "10_update_inbox_app",
+                        "runElevated": false,
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/10_update_inbox_app.ps1"
+                    },
+                    {
+                        "type": "PowerShell",
+                        "name": "11_install_visual_studio_code",
+                        "runElevated": false,
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/11_install_visual_studio_code.ps1"
+                    },
+                    {
+                        "type": "PowerShell",
+                        "name": "12_install_chromium_edge",
+                        "runElevated": false,
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/12_install_chromium_edge.ps1"
                     },
                     {
                         "type": "File",
                         "name": "start_layout",
                         "sourceUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/config/layout.xml",
-                        "destination": "C:\\Temp\\layout.xml"
+                        "destination": "C:\\SIG_Temp\\layout.xml"
                     },
                     {
                         "type": "PowerShell",
-                        "name": "09_install_custom_app",
+                        "name": "13_config_layout_menu",
                         "runElevated": false,
-                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/09_install_custom_app.ps1"
+                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/13_config_layout_menu.ps1"
                     },
                     {
                         "type": "WindowsUpdate",

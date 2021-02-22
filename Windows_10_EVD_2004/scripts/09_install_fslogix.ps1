@@ -1,5 +1,5 @@
 # Download FSLogix
-$tempFolder = "C:\Temp"
+$tempFolder = "C:\SIG_Temp"
 $fslogixUrl = "https://aka.ms/fslogix_download"
 $fslogixZip = $tempFolder + "\fslogix.zip"
 $wc = New-Object net.webclient
