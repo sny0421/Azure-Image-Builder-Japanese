@@ -3,8 +3,8 @@ Windows Registry Editor Version 5.00
 [HKEY_USERS\DEFAULT_USER\Control Panel\International]
 "Locale"="00000411"
 "LocaleName"="ja-JP"
-"s1159"="åﬂëO"
-"s2359"="åﬂå„"
+"s1159"="??ÅeO"
+"s2359"="????"
 "sCountry"="Japan"
 "sCurrency"="\"
 "sDate"="/"
@@ -12,7 +12,7 @@ Windows Registry Editor Version 5.00
 "sGrouping"="3;0"
 "sLanguage"="JPN"
 "sList"=","
-"sLongDate"="yyyy'îN'M'åé'd'ì˙'"
+"sLongDate"="yyyy'ÅhN'M'??'d'Åg?'"
 "sMonDecimalSep"="."
 "sMonGrouping"="3;0"
 "sMonThousandSep"=","
@@ -24,7 +24,7 @@ Windows Registry Editor Version 5.00
 "sTime"=":"
 "sTimeFormat"="H:mm:ss"
 "sShortTime"="H:mm"
-"sYearMonth"="yyyy'îN'M'åé'"
+"sYearMonth"="yyyy'ÅhN'M'??'"
 "iCalendarType"="1"
 "iCountry"="81"
 "iCurrDigits"="0"
@@ -48,7 +48,7 @@ Windows Registry Editor Version 5.00
 "Nation"="122"
 
 [HKEY_USERS\DEFAULT_USER\Control Panel\International\User Profile]
-"Languages"=hex(7):6a,00,61,00,00,00,65,00,6e,00,2d,00,55,00,53,00,00,00
+"Languages"=hex(7):6a,00,61,00,00,00,65,00,6e,00,2d,00,55,00,53,00,00,00,00,00
 "ShowAutoCorrection"=dword:00000001
 "ShowTextPrediction"=dword:00000001
 "ShowCasing"=dword:00000001
@@ -61,7 +61,7 @@ Windows Registry Editor Version 5.00
 "0411:{03B5835F-F03C-411B-9CE2-AA23E1171E36}{A76C93D9-5523-4E90-AAFA-4DB112F9AC76}"=dword:00000001
 
 [HKEY_USERS\DEFAULT_USER\Control Panel\International\User Profile System Backup]
-"Languages"=hex(7):6a,00,61,00,00,00,65,00,6e,00,2d,00,55,00,53,00,00,00
+"Languages"=hex(7):6a,00,61,00,00,00,65,00,6e,00,2d,00,55,00,53,00,00,00,00,00
 "ShowAutoCorrection"=dword:00000001
 "ShowTextPrediction"=dword:00000001
 "ShowCasing"=dword:00000001
