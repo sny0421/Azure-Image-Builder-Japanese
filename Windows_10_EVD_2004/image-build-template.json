@@ -177,12 +177,6 @@
                         "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/11_install_visual_studio_code.ps1"
                     },
                     {
-                        "type": "PowerShell",
-                        "name": "12_install_chromium_edge",
-                        "runElevated": false,
-                        "scriptUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/scripts/12_install_chromium_edge.ps1"
-                    },
-                    {
                         "type": "File",
                         "name": "start_layout",
                         "sourceUri": "https://raw.githubusercontent.com/sny0421/Azure-Image-Builder-Japanese/master/Windows_10_EVD_2004/config/layout.xml",
