@@ -1,0 +1,20 @@
+<Configuration>
+  <Add OfficeClientEdition="64" Channel="Monthly">
+    <Product ID="O365ProPlusRetail">
+      <Language ID="ja-jp" />
+      <Language ID="MatchOS" />
+      <ExcludeApp ID="Access" />
+      <ExcludeApp ID="Groove" />
+      <ExcludeApp ID="Lync" />
+      <ExcludeApp ID="OneDrive" />
+      <ExcludeApp ID="Publisher" />
+      <ExcludeApp ID="Teams" />
+    </Product>
+  </Add>
+  <RemoveMSI/>
+  <Updates Enabled="FALSE"/>
+  <Display Level="None" AcceptEULA="TRUE" />
+  <Logging Level=" Standard" Path="%temp%\WVDOfficeInstall" />
+  <Property Name="FORCEAPPSHUTDOWN" Value="TRUE"/>
+  <Property Name="SharedComputerLicensing" Value="1"/>
+</Configuration>
